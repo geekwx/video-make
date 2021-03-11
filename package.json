@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/geekwx/video-make/issues"
   },
-  "homepage": "https://github.com/geekwx/video-make#readme"
+  "homepage": "https://github.com/geekwx/video-make#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
