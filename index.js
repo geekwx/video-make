@@ -12,9 +12,9 @@ function start() {
     function askAndReturnPrefix(){
         const prefixes = ['Who is', 'What is', 'The history of']
         const selectedPrefixIndex = readline.keyInSelect(prefixes, 'Choose one option: ')
-        const selectedPredixText = prefixes[selectedPrefixIndex]
-
-        console.log(selectedPrefixIndex)
+        const selectedPrefixText = prefixes[selectedPrefixIndex]
+        
+        return selectedPrefixText
     }
     console.log(content)
 }
