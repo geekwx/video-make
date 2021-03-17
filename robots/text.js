@@ -10,7 +10,7 @@ const watsonApiKey = require('../credentials/watson-nlu.json').apikey
 //Implementacao Watson 
 const NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1.js');
 
-var nlu = new NaturalLanguageUnderstandingV1({
+const nlu = new NaturalLanguageUnderstandingV1({
     iam_apikey: watsonApiKey,
     version: '2018-04-05',
     url: 'https://gateway.watsonplatform.net/natural-language-understanding/api/'
@@ -18,18 +18,20 @@ var nlu = new NaturalLanguageUnderstandingV1({
   
 
 
- 
+//  importanto robo state
+const state = require('./state.js') 
 
 
-async function robot(content){
-   
+async function robot(){
+    const content = state.load()
     await fetchContentFromWikipedia(content)
      sanitizeContent(content)
      breakContentIntoSentences(content)
      limitMaximumSentences(content)
      await fetchKeywordsOfAllSentences(content)
 
-
+    //  salvando o resultado  no arquivo local 
+    state.save(content)
 
     //  funcao que utiliza a Api da Algorithmia para realizar o crawler do wikipedia utilizando o termos para buscar
     async function fetchContentFromWikipedia(content) {
