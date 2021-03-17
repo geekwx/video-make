@@ -106,3 +106,6 @@ dist
 
 #credential 
 credentials/*.json
+
+#arquivo salvo local
+content.json
